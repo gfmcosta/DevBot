@@ -7,7 +7,7 @@ class Voice(commands.Cog):
         self.bot = bot
     
     #Mute all member in a voice chat
-    @commands.command(help="Silencia todos os utilizadores no canal de voz")
+    @commands.command(name="silenciartodos", help="Silencia todos os utilizadores no canal de voz. (Não requer Argumentos)")
     async def muteall(self,ctx):
         var=ctx.author.id
         if 490296006810796044 == var:
@@ -20,7 +20,7 @@ class Voice(commands.Cog):
             await ctx.send('Não tens permissões suficientes.')
 
     #Unmute all member in a voice chat
-    @commands.command(help="Desmuta todos os utilizadores no canal de voz")
+    @commands.command(name="desmutartodos", help="Desmuta todos os utilizadores no canal de voz. (Não requer Argumentos)")
     async def unmuteall(self,ctx):
         var=ctx.author.id
         if 490296006810796044 == var:

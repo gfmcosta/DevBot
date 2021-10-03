@@ -54,6 +54,7 @@ class Manager(commands.Cog):
         embed_image.set_image(url=url_image)
         await welcomechannel.send(embed=embed_image)
 
+    #Event when someone leave the server
     @commands.Cog.listener()
     async def on_member_remove(self, member):
         welcomechannel = self.bot.get_channel(889280446444220466)

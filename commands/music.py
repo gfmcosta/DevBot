@@ -19,7 +19,7 @@ class Music(commands.Cog):
     
     
     #Command to join a room
-    @commands.command(help="Entra num canal de voz")
+    @commands.command(help="Entra num canal de voz. (Não requer Argumentos)")
     async def join(self,ctx):
         if ctx.author.voice is None:
             await ctx.send("Não está em nenhum canal de voz!")
@@ -30,12 +30,12 @@ class Music(commands.Cog):
             await ctx.voice_client.move_to(voice_channel)
 
     #Command to disconnect from a room
-    @commands.command(help="Sai de um canal de voz")
+    @commands.command(help="Sai de um canal de voz. (Não requer Argumentos)")
     async def leave(self,ctx):
         await ctx.voice_client.disconnect()
 
-#Nao esta a funcionar
-    @commands.command()
+    #Nao esta a funcionar
+    @commands.command(help="Começa a tocar uma musica. Argumentos: link")
     async def play(self,ctx, url):
         YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
         FFMPEG_OPTIONS = {'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': '-vn'}
@@ -52,13 +52,14 @@ class Music(commands.Cog):
             await ctx.send("Bot is already playing")
             return
 
-    
-    @commands.command(help="Pausa a música")
+    #Nao esta a funcionar
+    @commands.command(help="Pausa a música. (Não requer Argumentos)")
     async def pause(self,ctx):
         await ctx.voice_client.pause()
         await ctx.send('Em pausa ⏸')
 
-    @commands.command(help="Volta a reproduzir a música")
+    #Nao esta a funcionar
+    @commands.command(help="Volta a reproduzir a música. (Não requer Argumentos)")
     async def resume(self,ctx):
         await ctx.voice_client.resume()
         await ctx.send('A reproduzir ⏯')
